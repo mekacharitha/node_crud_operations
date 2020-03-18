@@ -8,7 +8,7 @@ async function createUser (req, res, next) {
             user
         })
     } catch (error) {
-        res.status(404),json({error})
+        res.status(404).json({error})
     }
 }
 
@@ -29,7 +29,7 @@ async function updateUser (req, res, next) {
 
 async function softDeleteUser (req, res, next) {
     try {
-        console.log("In soft deleted users");
+       // console.log("In soft deleted users");
         const user = await models.UserMain.update({'isDeleted':1},{
             where: {
                 id: req.params.userId
